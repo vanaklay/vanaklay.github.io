@@ -1,15 +1,15 @@
-title: Geekyll Starter Blog
+title: Blog et Portfolio de Vanak Lay
 markdown: kramdown
 url: ""
-baseurl: "/geekyll-starter-blog"
 
 # for atom feed
 author:
-  name: Sharad Raj
-  email: iamsharadraj@gmail.com
-  image: "https://avatars1.githubusercontent.com/u/36638057?s=460&u=b7ea83b7f3172f4517c653cefd5d0713853561b2&v=4"
-  bio: Developed by <b>Sharad Raj</b> who lives in India building useful things for the world.
-  github: "sharadcodes"
+  name: Vanak Lay
+  email: contact@vanaklay.com
+  image: "https://avatars0.githubusercontent.com/u/49145563?s=120&v=4"
+  bio: "Développeur indépendant basé à Paris qui accompagne les Startups dans la création de leur MVP ou 
+  dans le développement de leurs applications webs et mobiles grâce à la stack React, React Native, Javascript, Ruby et Ruby on Rails."
+  github: "vanaklay"
 
 plugins:
   - jemoji

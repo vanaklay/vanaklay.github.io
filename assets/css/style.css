@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,900;1,400&family=Montserrat:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,900;1,400&family=Ubuntu+Mono&family=Montserrat:wght@900&display=swap");
 
 * {
   padding: 0;
@@ -40,7 +40,7 @@ header * {
   user-select: none;
 }
 
-header h1 {
+header h2, header h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   font-size: 3.9rem;
@@ -191,7 +191,7 @@ article .meta {
   overflow-x: auto;
 }
 
-.content pre {
+pre {
   background: #00110d !important;
   padding: 12px 13px;
   margin-bottom: 1.75rem;
@@ -204,7 +204,7 @@ article .meta {
   border-radius: 2px;
   white-space: pre;
   background-color: #00110d;
-  font-family: monospace;
+  font-family: 'Ubuntu Mono', monospace;
 }
 
 .content blockquote,
@@ -498,7 +498,8 @@ article .meta {
   background-color: black !important;
 }
 .darkmode header p,
-.darkmode header h1 {
+.darkmode header h1,
+.darkmode header h2 {
   color: white !important;
 }
 
