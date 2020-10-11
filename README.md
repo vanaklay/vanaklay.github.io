@@ -1,4 +1,4 @@
-# Geekyll Starter Blog
+# A Blog
 A minimal Jekyll theme for blogging developed by Sharad Raj Singh Maurya
 
 ## Features
