@@ -432,9 +432,9 @@ Je te remercie d'avoir eu le courage d'aller jusqu'au bout de cette article. �
 J'espère que ça t'aidera à avoir une meilleure compréhension de la POO et que tu vas l'utiliser à mort dans tes projets à base de Ruby.
 
 ## Spécials remerciements 
-* [Fandom](https://gameofthrones.fandom.com/fr/wiki/Wiki_Game_of_Thrones) pour les images que j'ai utilisés pour cette article.
+* [Fandom](https://gameofthrones.fandom.com/fr/wiki/Wiki_Game_of_Thrones) pour les images que j'ai utilisés pour cet article.
 * [THP](https://www.thehackingproject.org/) pour m'avoir ouvert les yeux sur le monde fantastique de Ruby.
-* [Vivadata](https://vivadata.org/) pour l'inspiration de cette article, la découverte du monde du code, Python et le machine learning.
+* [Vivadata](https://vivadata.org/) pour l'inspiration de cet article, la découverte du monde du code, Python et le machine learning.
 
 
 
