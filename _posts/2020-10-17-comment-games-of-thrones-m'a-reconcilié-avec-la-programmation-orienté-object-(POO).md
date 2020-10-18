@@ -361,7 +361,7 @@ Etant donné que la classe Stark hérite des propriétés de sa classe parente, 
 ```ruby
     #./lib/stark.rb
     require_relative 'my_super_got_character'
-    class Stark < my_super_got_character
+    class Stark < Personnage
       attr_accessor :wolf
       @@stark_member = 0
       def initialize(name, last_name, position="Winterfell", is_alive=true, wolf_name)
