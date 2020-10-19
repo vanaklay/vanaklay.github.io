@@ -435,4 +435,4 @@ J'espère que ça t'aidera à avoir une meilleure compréhension de la POO et qu
 * [Fandom](https://gameofthrones.fandom.com/fr/wiki/Wiki_Game_of_Thrones) pour les images que j'ai utilisés pour cet article.
 * [THP](https://www.thehackingproject.org/) pour m'avoir ouvert les yeux sur le monde fantastique de Ruby.
 * [Vivadata](https://vivadata.org/) pour l'inspiration de cet article, la découverte du monde du code, Python et le machine learning.
-* [Marie Dechaux](https://github.com/mariedx) pour la relecture 😘
+* [Marie Dechaux](https://www.linkedin.com/in/marie-dechaux/) pour la relecture 😘
