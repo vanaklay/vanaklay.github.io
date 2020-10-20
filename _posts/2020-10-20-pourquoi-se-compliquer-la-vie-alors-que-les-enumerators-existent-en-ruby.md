@@ -5,6 +5,8 @@ author: Vanak
 
 Je viens de terminer la série Emily in Paris sur netflix et je comprends parfaitement pourquoi Emily tombe amoureux de son voisin de paillasson Mathieu. Il est plutôt BG, cuisine bien et parle trop bien l'anglais. C'est un français ce mec ? Bref, La vie d'Emily va se compliquer dans la saison 2, pourquoi ? ok j'évite de te spoiler... 
 
+![](../assets/img/enumerators.png)
+
 Bref tout ça pour dire que je suis aussi tomber amoureux de Ruby ... et oui, pareil voisin de paillasson, plutôt BG dans la lecture du code, simple et prometteur malgré qu'on lui annonce dans le déclin... et en plus tu vas te simplifier la vie en évitant de faire des boucles dans des boucles qui va stocker ton résultat dans un array vide. C'est ce que tous fans de Ruby appellent Enumerators ! 
 
 Et mec ! c'est la vie ! 
