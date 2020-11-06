@@ -3,9 +3,9 @@ layout: post
 author: Vanak
 ---
 
-La vie d’Emily ne vas pas se compliquer dans la saison 2 ?
+La vie d’Emily va t-elle se compliquer dans la saison 2 ?
 
-Je viens de terminer la série [Emily in Paris](https://fr.wikipedia.org/wiki/Emily_in_Paris) sur netflix et je comprends parfaitement pourquoi Emily tombe amoureuse de son voisin de paillasson [Gabriel](https://fr.wikipedia.org/wiki/Lucas_Bravo). Il est plutôt BG, cuisine bien et parle trop bien anglais.
+Je viens de terminer la série [Emily in Paris](https://fr.wikipedia.org/wiki/Emily_in_Paris) sur netflix et je comprends parfaitement pourquoi Emily tombe amoureuse de son voisin de paillasson [Gabriel](https://fr.wikipedia.org/wiki/Lucas_Bravo). Il est plutôt BG et semble bien cuisiner.
 
 ![](/assets/img/enumerators.png)
 
@@ -101,7 +101,7 @@ peoples = ["Luc","Gabriel", "Thomas", "Camille"]
 list_kissed = peoples.select{|people| people if people != "Luc" }
 list_kissed #=> ["Gabriel","Thomas", "Camille"]
 ```
-Ce que fait le select ici, c’est qu’il te retourne dans un array list_kissed (ça marche également pour un hash), un élément people de l’array peoples en filtrant avec notre condition if people != "Luc". Tu vois c’est plutôt pratique, ça tient sur une ligne et c’est lisible.
+Ce que fait le select ici, c’est qu’il te retourne dans un array `list_kissed` (ça marche également pour un hash), un élément `people` de l’array `peoples` en filtrant avec notre condition `if people != "Luc"`. Tu vois c’est plutôt pratique, ça tient sur une ligne et c’est lisible.
 
 ## Reject
 Avec `reject`, tu peux récupérer dans un array ou dans un hash, les éléments qui ne remplissent pas la condition donnée.
@@ -125,9 +125,9 @@ list_in_paris #=> ["LUC", "GABRIEL", "THOMAS", "CAMILLE", "ANTOINE", "SYLVIE", "
 Tu vois que pour chaque élément de l’array de base, je modifie sa casse en majuscule.
 
 ## Reduce
-La méthode `reduce` te permet d’obtenir la valeur total dans un array ou dans un hash. Par exemple, tu veux savoir en le nombre de minutes que j’ai passé à regarder toute la saison 1…
+La méthode `reduce` te permet d’obtenir la valeur total dans un array ou dans un hash. Par exemple, tu veux savoir le nombre de minutes que j’ai passé à regarder toute la saison 1…
 
-Rien de plus simple, tu fais un each en initialisant un compteur à zéro et tu l’incrémentes de la durée :
+Rien de plus simple, tu fais un `each` en initialisant un compteur à zéro et tu l’incrémentes de la durée :
 ```ruby
 total_minutes = 0
 saison_one = [24, 25, 23, 24, 27, 25, 23, 25, 24]
@@ -152,7 +152,7 @@ total_minutes #=> 220
 ```
 
 ## Map! Select! Reject!
-Avec toutes ces méthodes tu peux commencer à frimer en société ! Et pour paraître encore plus arrogant, laisse moi te donner encore une dernère manip.
+Avec toutes ces méthodes tu peux commencer à frimer en société ! Et pour paraître encore plus arrogant, laisses moi te donner encore une dernère manip.
 
 Lorsque que tu appliques ta méthode par exemple `.map` à ton array, tu recrées un nouvel array et ne modifies pas l’ancien. Alors que si tu appliques `.map!` avec un point d’exclamation, tu modifies l’array de base :
 ```ruby
@@ -180,3 +180,7 @@ Enfin avec un `each`, tu peux juste te la péter…
 J’espère que cet article t’aidera dans l’apprentissage du langage de programmation Ruby et si tu bloques n’hésites pas à poster ton problème en m’envoyant un email à contact@vanaklay.com. Je prendrai le temps de t’aider à trouver une solution.
 
 A bientôt !
+
+## Remerciements 
+* A tous les sites où j'ai piquer les images de cet article ! 
+* A la Team Felicita pour la relecture
