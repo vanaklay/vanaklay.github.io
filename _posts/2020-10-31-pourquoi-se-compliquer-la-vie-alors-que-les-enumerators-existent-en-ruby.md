@@ -9,7 +9,7 @@ Je viens de terminer la série [Emily in Paris](https://fr.wikipedia.org/wiki/Em
 
 ![](/assets/img/enumerators.png)
 
-Quel est le rapport entre cette série et Ruby ? Simplement que je suis aussi tomber amoureux de Ruby… pareil voisin de paillasson, plutôt BG dans la lecture du code, simple, prometteur malgré qu’on l’annonce dans le déclin et contrairement à la vie d’Emily, ton code ne vas pas être dirty…
+Quel est le rapport entre cette série et Ruby ? Simplement que je suis aussi tombé amoureux de Ruby… pareil voisin de paillasson, plutôt BG dans la lecture du code, simple, prometteur malgré qu’on l’annonce dans le déclin et contrairement à la vie d’Emily, ton code ne vas pas être dirty…
 
 Tu sais le code où il y a les boucles dans les boucles qui ont un `if statement` dans une autre boucle, le code bien dégueulasse de mes débuts quoi...
 ```ruby
@@ -183,4 +183,4 @@ A bientôt !
 
 ## Remerciements 
 * A tous les sites où j'ai piquer les images de cet article ! 
-* A la Team Felicita pour la relecture
+* A la Team Felicita pour la relecture, [Martin Louvard](#).
