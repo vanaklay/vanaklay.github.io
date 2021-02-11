@@ -1,4 +1,4 @@
-title: Blog et Portfolio de Vanak Lay
+title: Développeur web
 markdown: kramdown
 url: ""
 
@@ -7,8 +7,8 @@ author:
   name: Vanak Lay
   email: contact@vanaklay.com
   image: "https://avatars0.githubusercontent.com/u/49145563?s=120&v=4"
-  bio: "Développeur indépendant basé à Paris qui accompagne les Startups dans la création de leur MVP ou 
-  dans le développement de leurs applications webs et mobiles grâce à la stack React, React Native, Javascript, Ruby et Ruby on Rails."
+  bio: "Développeur back-end basé à Paris qui accompagne les Startups 
+  dans le développement de leurs applications webs grâce à ASP.NET, Ruby On Rails."
   github: "vanaklay"
 
 plugins:

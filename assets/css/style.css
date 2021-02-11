@@ -26,12 +26,31 @@ body p {
 main {
   margin-left: auto;
   margin-right: auto;
+  max-width: 60rem;
+  padding: 2.625rem 1.3125rem;
+}
+
+.section-home {
+  margin-left: auto;
+  margin-right: auto;
   max-width: 40rem;
   padding: 2.625rem 1.3125rem;
 }
 
+.section-post {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40rem;
+  padding: 2.625rem 1.3125rem;
+}
+
+.section-post ul {
+  list-style-type: circle;
+}
+
 footer {
   margin-top: 2rem;
+  text-align: center;
 }
 
 header * {
@@ -45,13 +64,14 @@ header h2, header h1 {
   font-weight: 900;
   font-size: 3.9rem;
   line-height: 4.5rem;
-  color: rgba(0, 0, 0, 0.9);
+  color: #102a42;
 }
 
 header .dmode {
-  margin-top: 2rem;
   margin-bottom: 2rem;
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
 }
 
 header .dmode img {
@@ -60,10 +80,89 @@ header .dmode img {
 }
 
 header section {
-  display: flex;
+  display: grid;
   margin: 0 0 4.375rem 0;
-  justify-content: space-between;
-  align-items: flex-start;
+  grid-template-columns: 1fr 2fr;
+}
+
+header .img-header {
+  width: 14rem;
+  height: 12rem;
+  justify-self: center;
+}
+
+@media screen and (max-width: 800px)
+{
+  header section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  header .img-header {
+    width: 14rem;
+    height: 12rem;
+    align-self: center;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+}
+.nav-links li {
+  margin-right: 2rem;
+}
+
+.p-bio {
+  margin-bottom: 2rem;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.row-contact {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn {
+  text-transform: uppercase;
+  background: #2782cd;
+  color: #fff;
+  padding: .375rem .75rem;
+  letter-spacing: 0.2rem;
+  font-weight: 700;
+  font-size: .875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.btn:hover {
+  background-color: #102a42;
+  color: #fff !important;
+}
+
+.social-links {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.social-link {
+  font-size: 1.75rem;
+  color: #2782cd;
+  margin-right: 2rem;
+}
+
+.social-link-end {
+  margin-right: 0;
 }
 
 section img {
@@ -75,30 +174,86 @@ section img {
 
 a {
   color: #2782cd;
-  border-bottom: 1px solid #2782cd;
+  transition: all 0.3s linear;
+  /* border-bottom: 1px solid #2782cd; */
 }
 
 a:hover {
-  border-bottom: none;
+  color: #102a42;
 }
 
-.posts {
+/* POSTS and SERVICES SECTION */
+.posts, services {
   margin-top: 4rem;
 }
 
-.posts h3 {
-  font-family: "Merriweather", "Georgia", serif;
+.blog {
+  padding-left: 10px;
+  display: block;
+  margin-bottom: 2rem;
+  background: #f1f5f8;
+  border-radius: 0.25;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s linear;
+}
+
+.section-center {
+  width: auto;
+  margin: 0 auto;
+}
+
+.services-center {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 2rem;
+  column-gap: 2rem;
+}
+
+.posts h2, .services h2 {
+  font-family: "Montserrat", sans-serif;
+  color: #102a42;
+  font-weight: 900;
+  text-rendering: optimizeLegibility;
+  font-size: 2rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.posts h3, services h3 {
+  font-family: "Montserrat", sans-serif;
   font-weight: 900;
   text-rendering: optimizeLegibility;
   font-size: 1.4427rem;
   line-height: 1.1;
-  margin-top: 3.5rem;
 }
 
 .posts small {
   font-size: 80%;
   margin-top: 0.6rem;
   display: block;
+}
+
+.underline {
+  width: 5rem;
+  height: .25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  background: #2782cd;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service {
+  background: #f1f5f8;
+  padding: 3rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  transition: all 0.3s linear;
+}
+.service-icon {
+  margin-bottom: 1.5rem;
+  border-radius: 0;
 }
 
 /* post page */
@@ -121,13 +276,15 @@ article .title {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  color: inherit;
   font-family: Montserrat, sans-serif;
   font-weight: 900;
   text-rendering: optimizeLegibility;
   font-size: 2.5rem;
   line-height: 1.1;
+  color: #102a42;
+
 }
+
 
 article .meta {
   margin-bottom: 1.75rem;
@@ -144,6 +301,7 @@ article .meta {
   margin-bottom: 1.75rem;
   line-height: inherit;
 }
+
 
 /* md syntax  */
 
@@ -172,10 +330,10 @@ article .meta {
 .content h5,
 .content h6 {
   margin: 1.75rem 0;
-  color: inherit;
   font-family: "Merriweather", serif;
   font-weight: 900;
   line-height: 1.1;
+  color: #102a42;
 }
 
 .markdown-body .highlighter-rouge {
@@ -513,6 +671,28 @@ pre {
   -webkit-animation: spin 0.4s linear;
   -moz-animation: spin 0.4s linear;
   animation: spin 0.4s linear;
+}
+
+
+.darkmode .posts h2 {
+  color: white !important;
+}
+.darkmode .services h2 {
+  color: white !important;
+}
+.darkmode .services h3,
+.darkmode .services p {
+  color: #102a42 !important;
+}
+
+.darkmode .content h1,
+.darkmode .content h2,
+.darkmode .content h3,
+.darkmode .content h4,
+.darkmode .content h5,
+.darkmode .content h6,
+.darkmode article .title {
+  color: #2782cd;
 }
 
 @-moz-keyframes spin {

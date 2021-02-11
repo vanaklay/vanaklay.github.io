@@ -1,0 +1,16 @@
+<section class="posts">
+  <h2>Les derniers articles</h2>
+  <div class="underline"></div>
+  {% for i in (0..1) %}
+  <div class="blog">
+    <a href="{{site.posts[i].url}}"><h3>{{site.posts[i].title}}</h3></a>
+    <small>{{site.posts[i].date|date_to_string}}</small>
+    <p>
+      {{site.posts[i].content|truncate: 120}}
+    </p>
+  </div>
+  {% endfor %}
+  <div class="row-contact">
+    <a class="btn" href="/blog">Blog</a>
+  </div>
+</section>
