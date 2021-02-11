@@ -265,6 +265,20 @@ a:hover {
   text-align: center;
   transition: all 0.3s linear;
 }
+
+.service:hover {
+  background-color: #2782cd;
+}
+
+.service:hover p {
+  color: #fff !important;
+}
+.darkmode .service:hover p {
+  color: #fff !important;
+}
+
+
+
 .service-icon {
   margin-bottom: 1.5rem;
   border-radius: 0;
