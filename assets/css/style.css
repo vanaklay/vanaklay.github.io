@@ -114,7 +114,7 @@ ul {
     justify-content: flex-end;
 }
 .nav-links li {
-  margin-right: 2rem;
+  margin-right: 16px;
 }
 
 .p-bio {

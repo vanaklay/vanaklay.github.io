@@ -5,7 +5,7 @@ author: Vanak
 
 La vie d’Emily va t-elle se compliquer dans la saison 2 ?
 
-Je viens de terminer la série [Emily in Paris](https://fr.wikipedia.org/wiki/Emily_in_Paris) sur netflix et je comprends parfaitement pourquoi Emily tombe amoureuse de son voisin de paillasson [Gabriel](https://fr.wikipedia.org/wiki/Lucas_Bravo). Il est plutôt BG et semble bien cuisiner.
+Je viens de terminer la série Emily in Paris sur netflix et je comprends parfaitement pourquoi Emily tombe amoureuse de son voisin de paillasson [Gabriel](https://fr.wikipedia.org/wiki/Lucas_Bravo). Il est plutôt BG et semble bien cuisiner.
 
 ![](/assets/img/enumerators.png)
 
@@ -183,4 +183,4 @@ A bientôt !
 
 ## Remerciements 
 * A tous les sites où j'ai piquer les images de cet article ! 
-* A la Team Felicita pour la relecture, [Martin Louvard](#).
+* A la Team Felicita pour la relecture, Martin Louvard.

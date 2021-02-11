@@ -3,10 +3,14 @@
   {% include head.html %}
   <body>
     <main>
-      {% include header.html %}
-      <section class="posts">
+      <header>
+        {% include post_header.html %}
+      </header>
+      <section class="posts section-post">
+        <h2>Tous les articles</h2>
+        <div class="underline"></div>
         {% for post in site.posts %}
-        <div class="post">
+        <div class="blog">
           <a href="{{post.url}}"><h3>{{post.title}}</h3></a>
           <small>{{post.date|date_to_string}}</small>
           <p>
