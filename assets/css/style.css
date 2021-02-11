@@ -44,6 +44,10 @@ main {
   padding: 2.625rem 1.3125rem;
 }
 
+.section-hero {
+  padding-top: 4rem;
+}
+
 .section-post ul {
   list-style-type: circle;
 }
@@ -102,6 +106,10 @@ header .img-header {
     width: 14rem;
     height: 12rem;
     align-self: center;
+  }
+
+  .section-hero {
+    padding-top: 0;
   }
 }
 
