@@ -64,10 +64,10 @@ Bizarrement, le site LastMinute.com ne trouve pas ton séjour alors que les vaca
 ### 2.2 Créer un projet .NET CORE
 Tu vas commencer par créer une nouvelle solution et un nouveau projet avec le framework .NET CORE 
 
-![](../assets/img/db/01.png)
-![](../assets/img/db/02.png)
-![](../assets/img/db/03.png)
-![](../assets/img/db/04.png)
+![](/assets/img/db/01.png)
+![](/assets/img/db/02.png)
+![](/assets/img/db/03.png)
+![](/assets/img/db/04.png)
 
 Maintenant que ton projet est créé, tu vas faire un peu de nettoyage dans ton explorateur de solution pour retirer les fichiers créés par default au lancement.
 
@@ -81,11 +81,11 @@ Tu vas ensuite installer les librairies (Packages NuGet) que tu auras besoin pou
 
 Pour ça, tu vas faire un clic droit sur le nom de ton projet puis cliquer sur `Gérer les packages NuGet`.
 
-![](../assets/img/db/05.png)
-![](../assets/img/db/06.png)
-![](../assets/img/db/07.png)
-![](../assets/img/db/08.png)
-![](../assets/img/db/09.png)
+![](/assets/img/db/05.png)
+![](/assets/img/db/06.png)
+![](/assets/img/db/07.png)
+![](/assets/img/db/08.png)
+![](/assets/img/db/09.png)
 
 ### 2.4 Créer un dossier Models
 Partant du principe Code First, tu vas d'abord écrire tes classes C# dans un dossier `Models` puis les transposer en tables dans ta base de données.
@@ -100,9 +100,9 @@ Dans cette classe `Voyage`, colles le code suivant entre les accolades de la `pu
   public string Pays { get; set; }
   public int Prix { get; set; }
 ```
-![](../assets/img/db/10.png)
+![](/assets/img/db/10.png)
 
-![](../assets/img/db/11.png)
+![](/assets/img/db/11.png)
 
 Cette classe sera la table `Voyage` que tu retrouveras dans ta DB après.
 
@@ -122,8 +122,8 @@ Colles le code suivant comme sur l'image en dessous :
     public DbSet<Voyage> Voyages { get; set; }
   }
 ```
-![](../assets/img/db/12.png)
-![](../assets/img/db/13.png)
+![](/assets/img/db/12.png)
+![](/assets/img/db/13.png)
 
 
 La classe 
@@ -139,7 +139,7 @@ Dans le fichier `Startup.cs`, tu vas ajouter le conteneur (`ApplicationsDbContex
 ```
 Là tu viens d'ajouter un service qui va être appelé à l'exécution de ton programme. En gros, tu dis à ton app d'utiliser les services de Sql Server avec les connexions qui se trouvent dans ton fichier `appsettings.json`.
 
-![](../assets/img/db/14.png)
+![](/assets/img/db/14.png)
 
 
 ### 2.7 Modifier le fichier appsettings.json
@@ -151,15 +151,15 @@ Ajoutes après la dernière ligne le code suivant :
     "APIContext": "Server=RemplaceIciParLeNomDuServeur;Database=UnNomDeDb;Trusted_Connection=True"
   }
 ```
-![](../assets/img/db/15.png)
-![](../assets/img/db/16.png)
-![](../assets/img/db/17.png)
+![](/assets/img/db/15.png)
+![](/assets/img/db/16.png)
+![](/assets/img/db/17.png)
 
 
 ### 2.8 Lancer PM
 Ensuite tu vas lancer la console du Gestionnaire de package pour créer les fichiers de migrations. Ces fichiers de migrations te permettront de créer une relation durable avec ta DB sur Sql Server.
 
-![](../assets/img/db/18.png)
+![](/assets/img/db/18.png)
 
 Commences par lancer un `Générer une solution` puis tester si tu as les outils nécessaires pour travailler. Dans la console, tapes le code suivant : 
 ```
@@ -179,7 +179,7 @@ Remplaces `NomDuProjet` par le nom de ton projet.
 
 Si tout se passe bien, tu devrais avoir un nouveau dossier `Migrations` qui a été créé.
 
-![](../assets/img/db/19.png)
+![](/assets/img/db/19.png)
 
 
 Si tu as une erreur `Use dotnet build`, fais `Générer la solution` et ça devrait passer. 
@@ -193,7 +193,7 @@ Dernier code à taper sur la console :
 Remplaces `WebMyAPICore` par le nom de ton projet. Si tout se passe comme prévu, tu vas avoir ta DB de créer sur Sql Server. 
 Vas checker sur `SQL Server Management Studio`.
 
-![](../assets/img/db/20.png)
+![](/assets/img/db/20.png)
 
 
 ### 2.9 Créer un controller
@@ -203,23 +203,23 @@ Tu vas maintenant ajouter un controller. C'est lui qui va donner les URL d'accè
 
 Cliques droit sur le dossier `Controllers` puis ajouter puis `Nouvel élément généré automatiquement...`.
 
-![](../assets/img/db/21.png)
+![](/assets/img/db/21.png)
 
 Ensuite, dans les éléments communs, cliques sur `API` puis sélectionnes `Contrôleur d'API avec actions, utilisant EF` et ajouter.
 
-![](../assets/img/db/22.png)
+![](/assets/img/db/22.png)
 
 
 Puis choisis la classe de modèle `Voyage`, la classe de contexte de données `ApplicationsDbContext`, donnes un nom, souvent il est généré automatiquement puis ajouter.
 
-![](../assets/img/db/23.png)
+![](/assets/img/db/23.png)
 
 
 Voilà, tu viens de créer les accès à ton API.
 
 Vas sur le fichier que ton projet vient de créer.
 
-![](../assets/img/db/24.png)
+![](/assets/img/db/24.png)
 
 
 Dans `VoyagesController`, son contructeur utilise l'injection de dépendance pour injecter le contexte de donnée. Avec l'injection de dépendance, tu fournis à tous les composants qui ont besoins des services à travers le constructeur. Le contexte sera alors utilisé dans toutes les méthodes REST de `VoyagesController`.
@@ -232,12 +232,12 @@ Comment tu peux le savoir ?
 
 Notes l'URL qui est devant le verbe `GET` : `api/Voyages`. Ceci est un `EndPoint`, le point d'accès. Tu trouveras l'`URL de base` dans le fichier `launchSettings.json`.
 
-![](../assets/img/db/25.png)
+![](/assets/img/db/25.png)
 
 ### 2.10 Modifier le fichier launchSettings.json 
 Dernière modification, remplaces la valeur des 2 clés `launchUrl` par le `EndPoint` que tu as noté.
 
-![](../assets/img/db/26.png)
+![](/assets/img/db/26.png)
 
 Fais un `Générer` puis lances `IIS Express`. 
 
