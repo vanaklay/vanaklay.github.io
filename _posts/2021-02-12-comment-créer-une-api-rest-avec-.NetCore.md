@@ -23,24 +23,26 @@ JeVoyageEnFrance.com : "Yes mec, tiens le voilà le super séjour"
 LastMinute.com : "Cool, merci JeVoyageEnFrance.com"
 ```
 
-Cette connexion va se faire via une `API` développer par le site partenaire pour accéder à certaines informations (ici savoir si ce voyage est dans leur base de donnée). 
+Cette connexion va se faire via une `API` développée par le site partenaire pour accéder à certaines informations (ici savoir si ce voyage est dans leur base de donnée). 
 
-Par exemple les API de la [Ratp](https://data.ratp.fr/explore/?sort=modified) te permettent de connaître les horaires en temps réels de ta ligne de métro ou de ton TER mais pas forcément qui travaillent à la Ratp parce que cette donnée n'est pas accessible via une API.
+Par exemple les API de la [Ratp](https://data.ratp.fr/explore/?sort=modified) te permettent de connaître les horaires en temps réels de ta ligne de métro ou de ton TER mais pas forcément qui travaillent à la Ratp parce que cette donnée n'est pas accessible via leur API.
 
-Ces API ne sont pas forcément développer dans le même langage de programmation que le site fait la demande mais respecte certaine règle notamment le modèle `REST`.
+Ces API ne sont pas forcément développées dans le même langage de programmation que le site demandeur mais respectent certaines règles notamment le modèle `REST`.
 
 ### 1.2 Qu'est-ce que REST ?
 De ton côté, tu vas créer des API dites `REST`.
 
-Le modèle REST est proposé en 2000 par __Roy Fielding__. REST signifie Reprentational State Transfert et est un style d'architecture logicielle. Le modèle REST repose sur une relation Client Serveur. 
+Le modèle REST est proposé en 2000 par __Roy Fielding__. REST signifie Representational State Transfert et est un style d'architecture logicielle. Le modèle REST repose sur une relation Client Serveur. 
 
-Tu sais que le protocole `HTTP` (__HyperText Transfert Protocol__) te permet d'intéragir avec le internet. Et bien, la façon de communiquer avec les API est identiques, tu vas utiliser 4 verbes du protocole HTTP :
+Tu sais que le protocole `HTTP` (__HyperText Transfert Protocol__) te permet d'interagir avec internet. Et bien, la façon de communiquer avec les API est identique, tu vas utiliser 4 verbes du protocole HTTP
 * La méthode `GET` pour afficher des ressources
 * La méthode `POST` pour envoyer des informations à créer en ressource
 * La méthode `PUT` pour modifier une information d'une ressource
 * La méthode `DELETE` pour effacer une ressource
 
-Avec cette API, tu vas pouvoir donner accès à toutes les ressources que tu décides de partager. Ainsi, si ton client a une application mobile, il pourra se connecter à tes données via le chemin que tu lui donnes souvent une URL (tu verras ça plus bas). Un autre client a une application web et pourra également se connecter à ton API et intéragir avec même si son application est dévlopper en Javascript.
+Avec cette API, tu vas pouvoir donner accès à toutes les ressources que tu décides de partager. 
+
+Ainsi, si ton client a une application mobile, il pourra se connecter à tes données via le chemin que tu lui donnes, souvent une URL (tu verras ça plus bas). Un autre client a une application web et pourra également se connecter à ton API et interagir avec même si son application est développer en Javascript.
 
 En réponse des requêtes sur tes API, tes clients vont recevoir un document soit au format XML (Extensible Markup Language) et plus souvent au format JSON (Javascript Object Notation).
 
@@ -55,23 +57,25 @@ Tu vas associer un couple clé-valeur dans un objet javascript :
   }
 ```
 
-Très bien, tu viens de finir ta partie de Question Pour Un Champion, tu vas passer au chose serieuse.
+Très bien, tu viens de finir ta partie de Question Pour Un Champion, tu vas passer au chose sérieuse.
 
 ## 2. La Ressource
 ### 2.1 La RESTAttitude avec .NET CORE
 Bizarrement, le site LastMinute.com ne trouve pas ton séjour alors que les vacances commencent bientôt. Avec tes talents de codeur et principalement tes talents de scrappeur (en récupérant des données d'une façon moins orthodoxe), tu décides de créer tes propres ressources pour devenir un fournisseur de donnée. Pour ça, tu vas créer une API avec le surprenant __framework .NET CORE__ dans sa version 3.1. 
 
 ### 2.2 Créer un projet .NET CORE
-Tu vas commencer par créer une nouvelle solution et un nouveau projet avec le framework .NET CORE 
+Tu vas commencer par créer une nouvelle solution et un nouveau projet avec le framework .NET CORE. 
 
 ![](/assets/img/db/01.png)
 ![](/assets/img/db/02.png)
 ![](/assets/img/db/03.png)
 ![](/assets/img/db/04.png)
 
-Maintenant que ton projet est créé, tu vas faire un peu de nettoyage dans ton explorateur de solution pour retirer les fichiers créés par default au lancement.
+Maintenant que ton projet est créé, tu vas faire un peu de nettoyage dans ton explorateur de solution pour retirer les fichiers créés par défaut au lancement.
 
 Supprimes le fichier `WeatherForecast.cs` à la racine du projet et dans le dossier Controllers, le fichier `WeatherForecastController`. 
+
+![](/assets/img/db/05.png)
 
 ### 2.3 Importer les Packages NuGet 
 Tu vas ensuite installer les librairies (Packages NuGet) que tu auras besoin pour faire tourner ton API : 
@@ -81,7 +85,6 @@ Tu vas ensuite installer les librairies (Packages NuGet) que tu auras besoin pou
 
 Pour ça, tu vas faire un clic droit sur le nom de ton projet puis cliquer sur `Gérer les packages NuGet`.
 
-![](/assets/img/db/05.png)
 ![](/assets/img/db/06.png)
 ![](/assets/img/db/07.png)
 ![](/assets/img/db/08.png)
@@ -92,7 +95,7 @@ Partant du principe Code First, tu vas d'abord écrire tes classes C# dans un do
 
 Ajoutes à ton projet un dossier `Models` puis dedans ajoutes une classe `Voyage`.
 
-Dans cette classe `Voyage`, colles le code suivant entre les accolades de la `public class Voyage` : 
+Dans cette classe `Voyage`, tapes le code suivant entre les accolades de la méthode `public class Voyage` : 
 ```cs
   public int Id { get; set; }
   public string NomDuVoyage { get; set; }
@@ -107,9 +110,9 @@ Dans cette classe `Voyage`, colles le code suivant entre les accolades de la `pu
 Cette classe sera la table `Voyage` que tu retrouveras dans ta DB après.
 
 ### 2.5 Ajouter les classes Stagiaire, ApplicationDbContext
-Tu crées ensuite une autre classe `ApplicationDbContext` dans ton dossier `Models`. 
+Tu crées ensuite une autre classe `ApplicationDbContext` dans ton dossier `Models`. Cette classe sera le conteneur qui va prendre la responsabilité de mapper les tables avec les classes C#.
 
-Colles le code suivant comme sur l'image en dessous :
+Tapes le code suivant comme sur l'image en dessous :
 ```cs
   public class ApplicationsDbContext: DbContext
   {
@@ -125,11 +128,9 @@ Colles le code suivant comme sur l'image en dessous :
 ![](/assets/img/db/12.png)
 ![](/assets/img/db/13.png)
 
-
-La classe 
 La classe `ApplicationsDbContext` va coordonner les fonctionnalités de Entity Framework pour la classe `Voyage`. Ce conteneur va spécifier quelles classes seront inclus dans le modèle en BD. Ici, la propriété `DbSet<Voyage> Voyages` est un set d'entité qui deviendra la DB ayant comme table `Voyage`.
 
-Avec `: base(options)`, tu renvois les options au contructeur de la classe `DbContext` qui seront passées en argumant lors de l'exécution.
+Avec `: base(options)`, tu renvois les options au constructeur de la classe `DbContext` qui seront passées en argument lors de l'exécution.
 
 ### 2.6 Modifier le fichier Startup.cs
 Dans le fichier `Startup.cs`, tu vas ajouter le conteneur (`ApplicationsDbContext`) comme service dans la méthode `ConfigureServices` : 
@@ -143,7 +144,7 @@ Là tu viens d'ajouter un service qui va être appelé à l'exécution de ton pr
 
 
 ### 2.7 Modifier le fichier appsettings.json
-Maintenant, tu vas modifier le fichier `appsettings.json` pour transmettre les informations concernant ta DB qui se trouve sur Sql Server. 
+Maintenant, tu vas modifier le fichier `appsettings.json` pour transmettre les informations concernant ta BD qui se trouve sur Sql Server. 
 
 Ajoutes après la dernière ligne le code suivant : 
 ```json
@@ -199,7 +200,7 @@ Vas checker sur `SQL Server Management Studio`.
 ### 2.9 Créer un controller
 Encore 2 étapes et tu pourras tester ton API. 
 
-Tu vas maintenant ajouter un controller. C'est lui qui va donner les URL d'accès pour intéragir avec ton API.
+Tu vas maintenant ajouter un controller. C'est lui qui va donner les URL d'accès pour interagir avec ton API.
 
 Cliques droit sur le dossier `Controllers` puis ajouter puis `Nouvel élément généré automatiquement...`.
 
@@ -222,11 +223,9 @@ Vas sur le fichier que ton projet vient de créer.
 ![](/assets/img/db/24.png)
 
 
-Dans `VoyagesController`, son contructeur utilise l'injection de dépendance pour injecter le contexte de donnée. Avec l'injection de dépendance, tu fournis à tous les composants qui ont besoins des services à travers le constructeur. Le contexte sera alors utilisé dans toutes les méthodes REST de `VoyagesController`.
+Dans `VoyagesController`, son constructeur utilise l'injection de dépendance pour injecter le contexte de donnée. Avec l'injection de dépendance, tu fournis des services à travers le constructeur à tous les composants qui ont besoins. Le contexte sera alors utilisé dans toutes les méthodes REST de `VoyagesController`.
 
-En parcourant ton controller, tu as tous les URLs d'accès aux méthodes.
-
-Par exemple pour afficher tous les voyages, l'URL sera `https://44386/api/voyages`. 
+En parcourant ton controller, tu as tous les URLs d'accès aux méthodes. Par exemple pour afficher tous les voyages, l'URL sera `https://44386/api/voyages`. 
 
 Comment tu peux le savoir ? 
 
@@ -254,4 +253,4 @@ Ce que tu viens d'apprendre:
 * Les étapes pas à pas pour créer une API Rest.
 
 ## 4. Pour aller plus loin
-La documention de [Microsoft](https://docs.microsoft.com/fr-fr/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio).
+La documentation de [Microsoft](https://docs.microsoft.com/fr-fr/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio).
