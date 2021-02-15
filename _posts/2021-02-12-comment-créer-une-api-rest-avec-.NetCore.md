@@ -3,7 +3,11 @@ layout: post
 author: vanak
 ---
 
-Tu veux profiter des vacances d'hiver pour faire un peu de ski, tu vas sur ton site favori de voyage LastMinute.com et tu fais une recherche de séjour disponible. Le site lance alors sa routine et va chercher le séjour qu'il te faut pour te relaxer des longues heures que tu passes devant ton écran. Curieux et codeur, tu te demandes ce qu'il est en train de mouliner...
+Tu veux profiter des vacances d'hiver pour faire un peu de ski, tu vas sur ton site favori de voyage LastMinute.com et tu fais une recherche de séjour disponible. 
+
+Le site lance alors sa routine et va chercher le séjour qu'il te faut pour te relaxer des longues heures que tu passes devant ton écran. Curieux et codeur, tu te demandes ce qu'il est en train de mouliner...
+
+![](https://miro.medium.com/max/1400/1*HX31jbHTQTqQT6tkWsTrfQ.png)
 
 Il est en fait en train de se connecter à plusieurs serveurs pour trouver selon tes critères la bonne destination. Il va passer par des API proposées par les autres sites. 
 
