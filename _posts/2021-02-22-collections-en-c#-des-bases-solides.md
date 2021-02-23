@@ -10,46 +10,155 @@ Tout ça pour dire qu'avec C# ces paniers s'appellent des `Collections`, tu vas 
 Aujourd'hui, ma mission est de te faire comprendre les collections en C# et comment en mettre partout dans ton code.
 
 ## 1. Historique et Contexte
-Il est fréquent que ton application doive manipuler de grandes quantités de données. Pour faire ceci, le framework .NET (tu sais, la structure de base sur quoi le langage C# repose) fournit plusieurs structures de données, regroupées sous l'appellation `collections`. Les collections sont des structures de données importantes en programmation. 
+Il est fréquent que ton application doive manipuler de grandes quantités de données. Pour faire ceci, le framework .NET (tu sais, la structure de base sur quoi le langage C# repose) fournit plusieurs structures de données, regroupées sous l'appellation `collections`. Les collections sont des structures de données importantes en programmation, encore. 
 
 Tu adapteras la bonne structure en fonction de la situation, par exemple si tu as besoin de stocker des données par type, avec ou sans ordre. 
 
-Ici, tu verras 3 types de structures à savoir les tableaux (`Arrays`), les listes (`List`) et les dictionnaires (`Dict`).
+Ici, tu verras 3 types de structures à savoir les tableaux (`Arrays`), les listes (`List`) et les dictionnaires (`Dictionary`).
 
 ## 2. Ressources
 ### 2.1 Les tableaux avec C#
-Un tableau (`Array` in English) te permet de stocker plusieurs variables chacune ayant une place (un index) précise au sein du tableau (N'oublies pas que tu commences à compter un index en partant de 0). 
+Tu sais qu'une variable permet de stocker une valeur et bien un tableau (`Array` in English) te permet de stocker plusieurs variables.Chacune d'elles a une place (un index) précise au sein de ton tableau (N'oublies pas que tu commences à compter un index en partant de 0). 
 
-Tu as 3 manières de déclarer un tableau : 
+Par exemple, tu vas faire les courses et comme tu es bien organisé.e, tu prépares une liste de courses. A l'intérieur, tu inscris du lait, des pâtes, de la litière et surtout le PQ. 
+
+Tu as 3 manières de déclarer ce tableau : 
 ```cs
+  // Manière N°1 
+  type[] NomDeVariable = new type[NombreDelement];
+  string[] TableauDeCourses = new string[4];
+  // Ici Tu instancies un tableau de 4 éléments de type string que tu bloques en mémoire
+  // Tu verras ce que veux dire le mot-clé new au moment de voir la Programmation Orientée Objet 
+  TableauDeCourses[0] = "lait"; // Puis tu assignes à chaque emplacement une valeur, ici à l'emplacement 0
+  TableauDeCourses[1] = "pâtes"; 
+  TableauDeCourses[2] = "litière";
+  TableauDeCourses[3] = "PQ"; // Si tu ne mets aucune valeur, tu vas allouer de l'espace en mémoire pour rien
+
+  // Manière N°2
+  string[] TableauDeCourses2 = new string[4] { "lait", "pâtes", "litière", "PQ" };
+  // Ici au moment où tu instancies ton tableau, tu mets directement les valeurs correspondantes
+
+  // Manière N°3
+  string[] TableauDeCourses3 = { "lait", "pâtes", "litière", "PQ" };
+  // Tu assignes directement des valeurs au tableau
+  // Si tu viens d'un autre langage de programmation, tu auras plus l'habitude avec celui là
 ```
 
-cities contient actuellement 3 entrées et tu peux confirmer cela grâce à la méthode .length : en entrant cities.length dans IRB, tu obtiens bien en retour l'Integer 3. Tu peux appeler une des variables stockées dans ce array en utilisant son index (variant, ici, de zéro à deux). Par exemple, si tu tapes cities[0], tu dois obtenir en retour "Paris". Si par contre tu fais le test avec une valeur d'index non renseignée (comme cities[3]), tu obtiens nil.
+Pour accéder à chaque élément de ton tableau, tu vas utiliser les crochets ([]) et mettre l'index à l'intérieur :
+```cs
+  TableauDeCourses[2] 
+  // En appelant ton tableau avec l'index 2, tu obtiens le troisième élément de ton tableau : "litière"
+```
 
-Tu peux tout à fait stocker ce que tu veux dans un array : tous les types de variables sont acceptés… même les arrays ! Exemple : miscellaneous = ["Zoé", 145000, true, ["bleu", "noir", false]]. Ainsi, si on fait miscellaneous[3], on obtient un array. Et si on fait miscellaneous[3][1] on obtient "noir", la variable n° 2 du sous-array lui-même situé à l'index n°3 de miscellaneous. 🤯
+Tu peux facilement faire une boucle `for` ou une boucle `foreach` avec un tableau pour accéder à chaque élément :
+```cs
+  for (var i = 0; i < TableauDeCourses.Length; i++)
+  {
+    Console.WriteLine(TableauDeCourses[i]);
+  }
 
-Tu peux très facilement modifier une entrée d'un array. Exemple :
+  foreach (var item in TableauDeCourses)
+  {
+    Console.WriteLine(item);
+  }
+```
+`TableauDeCourses.Length` te permet de connaître la longueur de ton tableau et `TableauDeCourses[i]` à chaque élément en utilisant la variable `i` de ta boucle.
 
-Le problème avec les tableaux c'est que tu dois d'abord allouer une quantité en mémoire au moment de sa création puis tu ne pourras plus modifier sa quantité après. Tu te doutes bien que les developpeurs de Microsoft ont trouvé une alternative à ça, les `listes`.
+Par contre, si tu appelles une valeur avec un index non renseigné (comme TableauDeCourses[5]), au moment de compiler, tu auras une belle exception. Pas très agréable si c'est un utilisateur qui s'en aperçoit.
+
+Tu peux très facilement modifier une valeur d'un tableau :
+```cs
+  TableauDeCourses[2] = "CocaCola zero";
+```
+
+Au fur et à mesure que tu remplis ton panier, tu veux rayer un élément de ta liste de courses. Le problème avec les tableaux c'est que tu dois d'abord allouer une quantité en mémoire au moment de sa création puis tu ne pourras plus modifier sa quantité après. Du coup, l'emplacement est toujours alloué en mémoire, imagines que tu dois gérer un dépôt comme Amazon, tu imagines pas le gaspillage de mémoire ?
+
+Tu te doutes bien que les developpeurs de Microsoft ont trouvé une alternative à ça, les `listes`.
 
 ### 2.2 Les listes avec C#
-Comme un tableau, avec les listes tu vas pouvoir stocker plusieurs variables mais de même type. 
+Comme un tableau, avec les listes tu vas pouvoir stocker plusieurs variables sauf que tu vas pouvoir faire plus de choses comme ajouter ou supprimer un élément.
 
+Tu as 2 manières de déclarer une liste : 
+```cs
+  // Manière 1
+  List<Type> NomDeVariable = new List<Type>();
+  List<string> listeDeCourses = new List<string>(); // Si ça surligne en rouge, n'oublies pas de faire le using 
+  listeDeCourses.Add("Chips"); // Puis tu lui ajoutes un élément à chaque fois
+  listeDeCourses.Add("Coca"); // Chaque élément aura son index
+  listeDeCourses.Add("PQ");
+  listeDeCourses.Add("Mouchoirs");
+
+  // Manière 2
+  List<string> listeDeCourses2 = new List<string>() { "Chips", "Coca", "PQ", "Mouchoirs" }; 
+```
+
+Tu peux accéder à un élément de ta liste comme avec les tableaux : 
+```cs
+  listeDeCourses[2]
+  // Tu obtiens "PQ"
+```
+
+Tu peux également boucler dessus : 
+```cs
+  foreach (var item in listeDeCourses)
+  {
+    Console.WriteLine(item);
+  } 
+
+  for (int i = 0; i < listeDeCourses.Count; i++)
+  {
+      Console.WriteLine(listeDeCourses[i]);
+  }
+```
+A la différence du tableau, pour connaître la longueur d'une liste, tu fais un `.Count`.
+
+Tu peux ajouter autant d'éléments que tu le souhaites et également en supprimer, pour ça tu as 2 méthodes :
+```cs
+  // Méthode 1 
+  listeDeCourses.remove("Coca"); // Tu lui donnes quoi supprimer
+
+  // Méthode 2
+  listeDeCourses.removeAt(2) // Tu lui donnes l'index de l'élément à supprimer
+```
+
+Ok, c'est plutôt pratique. Maintenant, tu connais déjà le prix de chaque article et pour ne pas te faire arnaquer, tu veux leurs associer un prix. Pour ça tu peux utiliser les dictionnaires.
 
 ### 2.3 Les dictionnaires avec C#
-Dans ce cours, tu vas apprendre à maîtriser les tables de hashage (ou hash), un type de données assez proche des arrays et indispensable quand on fait de la programmation. Les Hash sont extrêmement pratiques (incontournables même) quand on veut stocker des données.
+Les dictionnaires (`Dictionary`) fonctionnent avec une relation `clé-valeur`. Les dictionnaires sont extrêmement pratiques quand tu veux stocker des données.
 
-Les hash et arrays sont des types de données aussi universels que les booléens, strings, integers, et floats. Ils sont à la base de l'univers de la programmation et tout bon codeur doit les maîtriser parfaitement.
+Tu as mis tes articles dans ton panier et ce serait cool de savoir à combien est le total de l'addition, non ? Pour faire cela, tu as besoin de connaître le prix de chaque article. Avec le dictionnaire, tu vas simplement mettre face à face, l'article et son prix, une relation `clé-valeur` : 
+```cs
+  Dictionary<TypeDeLaClé, TypeDeLaValeur> NomDuDictionnaire = new Dictionary<TypeDeLaClé, TypeDeLaValeur>();
+  Dictionary<string, double> panierDeCourse = new Dictionary<string, double>();
+  // Tu instancies un dictionnaire en lui donnant entre chevrons à gauche le type de la clé et à droite le type de la valeur
 
-Après avoir découvert l'univers des arrays, nous allons aborder les hash sur lesquels tu as déjà un peu travaillé lors de la semaine 0. Hier, on a créé des utilisateurs pour notre application et ce serait cool de pouvoir associer une adresse e-mail à un mot de passe, non ? Ça tombe bien les Hash c'est fait pour stocker ça. Mais pas que, on va voir tout ça avec le cours de Learn Ruby The Hard Way.
+  panierDeCourse.Add("Coca", 1.30); // Pour ajouter un élément au dictionnaire, tu utilises la méthode .Add et tu fournis 
+                                    // la clé et la valeur
+  panierDeCourse.Add("PQ", 2.40); 
 
-Note que l'utilisation de hash, plutôt que d'array, est conseillée en Ruby (même si cela dépend de ton usage exacte). En effet, un hash permet une organisation plus claire des données et est facile à parcourir avec .each do |key,value|. De plus, c'est une très bonne porte d’entrée sur JavaScript où les API avec lesquelles tu vas communiquer utilisent des hashs de données.
+  panierDeCourse["kiwe"] = 0.99; // Tu peux aussi ajouter un élément en mettant la clé entre crochet et assigné une valeur
+```
+
+Pour accéder à un élément, tu ne pourras y accéder que si tu connais la clé : 
+```cs
+  panierDeCourse["Coca"];
+```
+Contrairement aux tableaux et aux listes, les dictionnaires n'ont pas d'ordre. Ils sont non ordonnés. Si tu regardes bien, une liste est un dictionnaire avec comme clé, l'index. Le fait d'être non ordonné est très important pour ton ordinateur. 
+
+Pourquoi ? Parce que parcourir une liste un par un est plus long à faire que d'aller directement à la valeur grâce à la clé. La prochaine fois que tu devras ranger ton bureau, tu pourras dire que c'est plus rapide de trouver un élément dans ce désordre que de vérifier chaque tas bien ranger... 
+
+Comme avec les autres collections, tu peux faire des boucles, utiliser des méthodes sur tes dictionnaires.
 
 ## 3. Ce que tu dois retenir
-
-Un array est un tableau (sur une ligne) qu'on déclare ainsi cities = ["Paris", "Lyon", "Montpellier"].
-Son index commence à zéro donc cities[0] = "Paris".
-Tu peux facilement modifier son contenu : cities[1] = "Marseille" donnera : cities = ["Paris", "Marseille", "Montpellier"]
-
+Ces 3 types de structure te permettent de stocker des données de différentes manières selon le cas d'usage :
+* Avec un tableau, tu détermines sa taille et son type au départ. Tu peux facilement modifier son contenu en selectionnant l'emplacement et assigner une valeur : `TableauDeCourses[2] = "CocaCola zero";`
+* Avec une liste, tu peux modifier sa contenance. Tu peux ajouter ou supprimer des éléments de ta liste : `listeDeCourses.remove("Coca");`
+* Avec un dictionnaire, tu peux associer une clé à une valeur et tu peux y accéder plus rapidement qu'avec une liste ou un tableau : 
+`panierDeCourse["Coca"];`
 
 ## 4. Pour aller plus loin
+En cherchant un peu, tu constates qu'il existe une collection `ArrayList` dans laquelle tu peux mettre différents types à l'intérieur, comme ce n'est pas une bonne pratique, j'ai fait l'impasse dessus mais sache que si ton imagination t'emporte et que tu as besoin d'avoir plusieurs types dans ta liste, tu peux l'utiliser.
+
+Tu peux aussi avoir des `listes de liste`. Des `dictionnaires de listes`...
+
+Bien entendu la doc de [Microsoft](https://docs.microsoft.com/fr-fr/dotnet/api/system.collections.generic.list-1?view=net-5.0) va te permettre de découvrir d'autres collections et d'autres méthodes applicables à nos 3 collections.
