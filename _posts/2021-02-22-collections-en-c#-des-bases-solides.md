@@ -3,14 +3,16 @@ layout: post
 author: vanak
 ---
 
-Tu t'es déjà retrouvé à faire les courses et à un moment donné tu te retrouves débordé d'articles entre tes mains parce que tu n'as pas pris de panier à l'entrée du magasin ? (Non, ça n'arrive qu'à moi... ok...)
+Tu t'es déjà retrouvé.e à faire les courses et à un moment donné tu te retrouves débordé.e d'articles entre tes mains parce que tu n'as pas pris de panier à l'entrée du magasin ? (Non, ça n'arrive qu'à moi... ok...)
 
 Tout ça pour dire qu'avec C# ces paniers s'appellent des `Collections`, tu vas pouvoir mettre des données dans un panier.
 
 Aujourd'hui, ma mission est de te faire comprendre les collections en C# et comment en mettre partout dans ton code.
 
+![](https://miro.medium.com/max/1400/1*V0T1HfunNPPaNFM5vhpmCw.png)
+
 ## 1. Historique et Contexte
-Il est fréquent que ton application doive manipuler de grandes quantités de données. Pour faire ceci, le framework .NET (tu sais, la structure de base sur quoi le langage C# repose) fournit plusieurs structures de données, regroupées sous l'appellation `collections`. Les collections sont des structures de données importantes en programmation, encore. 
+Il est fréquent que ton application doive manipuler de grandes quantités de données. Pour faire cela, le framework .NET (tu sais, la structure de base sur quoi le langage C# repose) fournit plusieurs structures de données, regroupées sous l'appellation `collections`. Les collections sont des structures de données importantes en programmation, encore. 
 
 Tu adapteras la bonne structure en fonction de la situation, par exemple si tu as besoin de stocker des données par type, avec ou sans ordre. 
 
@@ -18,9 +20,9 @@ Ici, tu verras 3 types de structures à savoir les tableaux (`Arrays`), les list
 
 ## 2. Ressources
 ### 2.1 Les tableaux avec C#
-Tu sais qu'une variable permet de stocker une valeur et bien un tableau (`Array` in English) te permet de stocker plusieurs variables.Chacune d'elles a une place (un index) précise au sein de ton tableau (N'oublies pas que tu commences à compter un index en partant de 0). 
+Tu sais qu'une variable permet de stocker une valeur et bien un tableau (`Array` in English) te permet de stocker plusieurs variables. Chacune d'elles a une place (un index) précise au sein de ton tableau (N'oublies pas que tu commences à compter un index en partant de 0). 
 
-Par exemple, tu vas faire les courses et comme tu es bien organisé.e, tu prépares une liste de courses. A l'intérieur, tu inscris du lait, des pâtes, de la litière et surtout le PQ. 
+Par exemple, tu vas faire les courses et comme tu es bien organisé.e, tu prépares une liste. A l'intérieur, tu inscris du lait, des pâtes, de la litière et surtout du PQ. 
 
 Tu as 3 manières de déclarer ce tableau : 
 ```cs
@@ -46,7 +48,7 @@ Tu as 3 manières de déclarer ce tableau :
 
 Pour accéder à chaque élément de ton tableau, tu vas utiliser les crochets ([]) et mettre l'index à l'intérieur :
 ```cs
-  TableauDeCourses[2] 
+  TableauDeCourses[2]; 
   // En appelant ton tableau avec l'index 2, tu obtiens le troisième élément de ton tableau : "litière"
 ```
 
@@ -71,9 +73,11 @@ Tu peux très facilement modifier une valeur d'un tableau :
   TableauDeCourses[2] = "CocaCola zero";
 ```
 
-Au fur et à mesure que tu remplis ton panier, tu veux rayer un élément de ta liste de courses. Le problème avec les tableaux c'est que tu dois d'abord allouer une quantité en mémoire au moment de sa création puis tu ne pourras plus modifier sa quantité après. Du coup, l'emplacement est toujours alloué en mémoire, imagines que tu dois gérer un dépôt comme Amazon, tu imagines pas le gaspillage de mémoire ?
+Au fur et à mesure que tu remplis ton panier, tu veux rayer un élément de ta liste de courses. Le problème avec les tableaux c'est que tu dois d'abord allouer une quantité en mémoire au moment de sa création puis tu ne pourras plus modifier sa quantité après. Du coup, l'emplacement est toujours alloué en mémoire, imagines que tu dois gérer un entrepôt comme Amazon, tu n'imagines pas le gaspillage de mémoire ?
 
-Tu te doutes bien que les developpeurs de Microsoft ont trouvé une alternative à ça, les `listes`.
+![](https://miro.medium.com/max/960/1*k7Yb4KgdRabP6eC3kt1BEw.gif)
+
+Tu te doutes bien que les développeurs de Microsoft ont trouvé une alternative à ça, les `listes`.
 
 ### 2.2 Les listes avec C#
 Comme un tableau, avec les listes tu vas pouvoir stocker plusieurs variables sauf que tu vas pouvoir faire plus de choses comme ajouter ou supprimer un élément.
@@ -94,7 +98,7 @@ Tu as 2 manières de déclarer une liste :
 
 Tu peux accéder à un élément de ta liste comme avec les tableaux : 
 ```cs
-  listeDeCourses[2]
+  listeDeCourses[2];
   // Tu obtiens "PQ"
 ```
 
@@ -126,7 +130,9 @@ Ok, c'est plutôt pratique. Maintenant, tu connais déjà le prix de chaque arti
 ### 2.3 Les dictionnaires avec C#
 Les dictionnaires (`Dictionary`) fonctionnent avec une relation `clé-valeur`. Les dictionnaires sont extrêmement pratiques quand tu veux stocker des données.
 
-Tu as mis tes articles dans ton panier et ce serait cool de savoir à combien est le total de l'addition, non ? Pour faire cela, tu as besoin de connaître le prix de chaque article. Avec le dictionnaire, tu vas simplement mettre face à face, l'article et son prix, une relation `clé-valeur` : 
+Tu as mis tes articles dans ton panier et ce serait cool de savoir à combien est le total de l'addition, non ? Pour faire cela, tu as besoin de connaître le prix de chaque article. 
+
+Avec le dictionnaire, tu vas simplement mettre face à face, l'article et son prix, une relation `clé-valeur` : 
 ```cs
   Dictionary<TypeDeLaClé, TypeDeLaValeur> NomDuDictionnaire = new Dictionary<TypeDeLaClé, TypeDeLaValeur>();
   Dictionary<string, double> panierDeCourse = new Dictionary<string, double>();
@@ -150,15 +156,17 @@ Pourquoi ? Parce que parcourir une liste un par un est plus long à faire que d'
 Comme avec les autres collections, tu peux faire des boucles, utiliser des méthodes sur tes dictionnaires.
 
 ## 3. Ce que tu dois retenir
-Ces 3 types de structure te permettent de stocker des données de différentes manières selon le cas d'usage :
-* Avec un tableau, tu détermines sa taille et son type au départ. Tu peux facilement modifier son contenu en selectionnant l'emplacement et assigner une valeur : `TableauDeCourses[2] = "CocaCola zero";`
+Ces 3 types de structure te permettent de stocker plusieurs données dans un conteneur de différentes manières selon le cas d'usage :
+* Avec un tableau, tu détermines sa taille et son type au départ. Tu peux facilement modifier son contenu en sélectionnant l'emplacement et assigner une valeur : `TableauDeCourses[2] = "CocaCola zero";`
 * Avec une liste, tu peux modifier sa contenance. Tu peux ajouter ou supprimer des éléments de ta liste : `listeDeCourses.remove("Coca");`
 * Avec un dictionnaire, tu peux associer une clé à une valeur et tu peux y accéder plus rapidement qu'avec une liste ou un tableau : 
 `panierDeCourse["Coca"];`
 
 ## 4. Pour aller plus loin
-En cherchant un peu, tu constates qu'il existe une collection `ArrayList` dans laquelle tu peux mettre différents types à l'intérieur, comme ce n'est pas une bonne pratique, j'ai fait l'impasse dessus mais sache que si ton imagination t'emporte et que tu as besoin d'avoir plusieurs types dans ta liste, tu peux l'utiliser.
+En cherchant un peu, tu remarques qu'il existe une collection `ArrayList` dans laquelle tu peux mettre différents types à l'intérieur, comme ce n'est pas une bonne pratique, j'ai fait l'impasse dessus mais sache que si ton imagination l'emporte et que tu as besoin d'avoir plusieurs types dans ta liste, tu peux l'utiliser.
 
 Tu peux aussi avoir des `listes de liste`. Des `dictionnaires de listes`...
 
 Bien entendu la doc de [Microsoft](https://docs.microsoft.com/fr-fr/dotnet/api/system.collections.generic.list-1?view=net-5.0) va te permettre de découvrir d'autres collections et d'autres méthodes applicables à nos 3 collections.
+
+![](https://miro.medium.com/max/440/1*g6zHVkagNf4S2ZKmy-KSbQ.gif)
