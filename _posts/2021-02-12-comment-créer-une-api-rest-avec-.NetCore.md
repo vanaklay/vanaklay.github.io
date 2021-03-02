@@ -113,7 +113,7 @@ Dans cette classe `Voyage`, tapes le code suivant entre les accolades de la mét
 
 Cette classe sera la table `Voyage` que tu retrouveras dans ta DB après.
 
-### 2.5 Ajouter les classes Stagiaire, ApplicationDbContext
+### 2.5 Ajouter la classe Voyage dans le conteneur d'entités ApplicationDbContext
 Tu crées ensuite une autre classe `ApplicationDbContext` dans ton dossier `Models`. Cette classe sera le conteneur qui va prendre la responsabilité de mapper les tables avec les classes C#.
 
 Tapes le code suivant comme sur l'image en dessous :
@@ -140,7 +140,7 @@ Avec `: base(options)`, tu renvois les options au constructeur de la classe `DbC
 Dans le fichier `Startup.cs`, tu vas ajouter le conteneur (`ApplicationsDbContext`) comme service dans la méthode `ConfigureServices` : 
 ```cs
   services.AddDbContext<ApplicationsDbContext>(options => 
-          options.UseSqlServer(Configuration.GetConnectionString("APICotext")));
+          options.UseSqlServer(Configuration.GetConnectionString("APIContext")));
 ```
 Là tu viens d'ajouter un service qui va être appelé à l'exécution de ton programme. En gros, tu dis à ton app d'utiliser les services de Sql Server avec les connexions qui se trouvent dans ton fichier `appsettings.json`.
 
