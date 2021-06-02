@@ -5,10 +5,10 @@ url: ""
 # for atom feed
 author:
   name: Vanak Lay
-  email: contact@vanaklay.com
+  email: ven2kaze@gmail.com
   image: "https://avatars0.githubusercontent.com/u/49145563?s=120&v=4"
-  bio: "Développeur back-end basé à Paris qui accompagne les Startups 
-  dans le développement de leurs applications webs grâce à ASP.NET, Ruby On Rails."
+  bio: "Développeur Javascript basé à Paris qui accompagne les Startups 
+  dans le développement de leurs applications webs grâce à au langage Javascript et React."
   github: "vanaklay"
 
 plugins:
